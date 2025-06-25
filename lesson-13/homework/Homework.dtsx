@@ -1,0 +1,1791 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/25/2025 12:10:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-IQDREHRC5DK"
+  DTS:CreatorName="WIN-IQDREHRC5DK\user"
+  DTS:DTSID="{433C20A7-1442-440B-A9FC-71CDA4752777}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{4BCC9700-2501-4D01-BC2A-2E80A3833C9E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{0DF990E1-64BE-4A91-A0B4-9A3548FC3A8C}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FullFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1049"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1251">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeID"
+              DTS:DTSID="{5545A0B8-4512-4339-8B8D-79E1D7E0B26E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{9F1923B3-0000-4518-91DC-CAAB1A01237A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Department"
+              DTS:DTSID="{BACFDBD6-1370-4EBF-A24E-1B6CD0092002}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Salary"
+              DTS:DTSID="{8787A01D-5E8D-498F-A2DC-D13A6EF80AC2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9E08E714-FBCC-402B-81B3-738DA59BFE5E}"
+      DTS:ObjectName="WIN-IQDREHRC5DK.ssis13">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-IQDREHRC5DK;Initial Catalog=ssis13;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{9E08E714-FBCC-402B-81B3-738DA59BFE5E}WIN-IQDREHRC5DK.ssis13;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{718B5BA5-EAF3-4764-A8C5-98A012CBC9E2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{628E328F-E130-46AC-AF55-1543F5C0EFCC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\user\Desktop\Docs\SSIS\Lesson13\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{423632D3-4DD0-4774-9B1E-2A0B72A61CA3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{88ADF680-A76D-45A2-BEE7-E5E8E61E2893}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{DD4BD146-157B-48C5-80BC-9BE22AE14014}"
+        DTS:ObjectName="{DD4BD146-157B-48C5-80BC-9BE22AE14014}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\user\Desktop\Docs\SSIS\Lesson13\" />
+            <FEFEProperty
+              FileSpec="data_*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{65A02470-57AB-4AD1-B9A8-36501AF66723}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Name (1)]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Name (1)"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name (1)]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Matched]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Matched"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">![ISNULL](#{Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name (1)]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">!ISNULL([Name (1)])</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Unmatched]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Unmatched"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name (1)]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL([Name (1)])</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="EmployeeID"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[EmployeeID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                          cachedCodepage="1251"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Name"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Department]"
+                          cachedCodepage="1251"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Department"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Department]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Salary]"
+                          cachedDataType="cy"
+                          cachedName="Salary"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Salary]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeID]"
+                          name="Copy of EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[EmployeeID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                          name="Copy of Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Department]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Department]"
+                          name="Copy of Department"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Department]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Salary]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Salary]"
+                          name="Copy of Salary"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Salary]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="16"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Not in SQL table"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Not in SQL table"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1049"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          name="EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                          codePage="1251"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
+                          codePage="1251"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
+                          name="Department"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Salary]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Salary]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Salary]"
+                          name="Salary"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          dataType="i4"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          codePage="1251"
+                          dataType="str"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          codePage="1251"
+                          dataType="str"
+                          length="50"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Salary]"
+                          dataType="cy"
+                          name="Salary" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1251"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup"
+                  componentClassID="Microsoft.FuzzyLookup"
+                  contactInfo="Fuzzy Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="Performs data cleaning tasks such as standardizing data, correcting data, and providing missing values.  Uses fuzzy matching to return one or more close matches from a reference table. For example, lookup customer data by address, even if your input address data does not exactly match your reference address data."
+                  name="Fuzzy Lookup"
+                  version="5">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates whether to reuse an existing fuzzy-match index table or build a new one. The new index table can be temporary, persisted, or persisted and maintained."
+                      name="MatchIndexOptions"
+                      typeConverter="tcMatchIndexOptions">1</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the maximum amount of memory (MB) that this instance of the Fuzzy Lookup transformation can use.  If 0 is given, then the transform will dynamically adjust it's memory usage based upon it's requirements and available system memory."
+                      expressionType="Notify"
+                      name="MaxMemoryUsage" />
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the name of the fuzzy-match index table to be reused or the table name in which a newly generated fuzzy-match index table will be written."
+                      name="MatchIndexName"
+                      state="escaped" />
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the reference table or view against which to match incoming records."
+                      name="ReferenceTableName"
+                      state="escaped">_x005B_dbo_x005D_._x005B_Employee_x005D_</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates whether to drop an existing fuzzy-match index table if transformation is configured to generate a new table and a table with the same name already exists."
+                      name="DropExistingMatchIndex">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether a copy of the reference table should be made for fuzzy match index construction and subsequent matching.  It is strongly recommended that a copy always be made, otherwise unpredictable output may result if the contents of the reference table change during package execution (or between executions if reusing a fuzzy match index).  If this property is set to false, the reference table must additionally have a clustered index built upon an integer identity column."
+                      name="CopyReferenceTable">1</property>
+                    <property
+                      dataType="System.UInt32"
+                      description="Specifies the maximum number of fuzzy matches to return for an input record."
+                      name="MaxOutputMatchesPerInput">1</property>
+                    <property
+                      dataType="System.Single"
+                      description="Specifies the minimum similarity score required for the match results that the transformation returns."
+                      name="MinSimilarity">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the set of white-space and punctuation characters used to separate fuzzy match fields into the words used for matching and scoring a fuzzy lookup."
+                      name="Delimiters"
+                      state="escaped">_x0020__x0009__x000D__x000A__x002C_._x003B_:-_x0022__x0027__x0026__x002F__x005C__x0040__x0021__x003F__x0028__x0029__x003C__x003E__x005B__x005D__x007B__x007D__x007C__x0023__x002A__x005E__x0025_</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the metadata of the reference table in XML format."
+                      name="ReferenceMetadataXml"
+                      state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_EmployeeID_x0022__x0020_dataType_x003D__x0022_DT_I4_x0022__x0020_length_x003D__x0022_0_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Name_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_100_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Department_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_100_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Salary_x0022__x0020_dataType_x003D__x0022_DT_CY_x0022__x0020_length_x003D__x0022_0_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="If true, each input record will be directly compared against EVERY record in the reference table.  This may produce slightly better results, but will be extremely slow unless the number of records in the reference table is very small.  Note that the entire reference table will be loaded into main memory if this option is enabled.  This option is primarily intended for debugging purposes and should be used with care."
+                      name="Exhaustive">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="If true, Fuzzy Lookup will partially load the error-tolerant index and the reference table into main memory before execution begins.  This can greatly enhance performance if many input rows are to be processed."
+                      name="WarmCaches">true</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+                      connectionManagerRefId="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+                      description="Microsoft SQL Server connection and database in which the fuzzy lookup reference table is located and where the fuzzy match index table will be stored and accessed."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Inputs[Fuzzy Lookup Input]"
+                      name="Fuzzy Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Inputs[Fuzzy Lookup Input].Columns[Name]"
+                          cachedCodepage="1251"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Name"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Name]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">Name</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">2</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Inputs[Fuzzy Lookup Input].Columns[Department]"
+                          cachedCodepage="1251"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Department"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Department]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">Department</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">2</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Inputs[Fuzzy Lookup Input].Columns[Salary]"
+                          cachedDataType="cy"
+                          cachedName="Salary"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Salary]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">Salary</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">1</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Inputs[Fuzzy Lookup Input].Columns[EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="EmployeeID"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">EmployeeID</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">1</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output]"
+                      name="Fuzzy Lookup Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[EmployeeID]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[EmployeeID]"
+                          name="EmployeeID">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeID]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name]"
+                          codePage="1251"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name]"
+                          name="Name">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Department]"
+                          codePage="1251"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Department]"
+                          name="Department">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Department]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Salary]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Salary]"
+                          name="Salary">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Salary]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name (1)]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Name (1)]"
+                          name="Name (1)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">Name</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Department (1)]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Department (1)]"
+                          name="Department (1)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">Department</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Salary (1)]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[Salary (1)]"
+                          name="Salary (1)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">Salary</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[EmployeeID (1)]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[EmployeeID (1)]"
+                          name="EmployeeID (1)">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">EmployeeID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Similarity]"
+                          dataType="r4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Similarity]"
+                          name="_Similarity">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">1</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Confidence]"
+                          dataType="r4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Confidence]"
+                          name="_Confidence">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">2</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Name]"
+                          dataType="r4"
+                          description="Column-level similarity score for fuzzy join on column &quot;Name&quot;."
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Name]"
+                          name="_Similarity_Name">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">3</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Department]"
+                          dataType="r4"
+                          description="Column-level similarity score for fuzzy join on column &quot;Department&quot;."
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Department]"
+                          name="_Similarity_Department">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Department]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">3</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Employee]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1251</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+                      connectionManagerRefId="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="Copy of EmployeeID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of Name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Department]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of Department"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Department]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Salary]"
+                          cachedDataType="cy"
+                          cachedName="Copy of Salary"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Salary]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          dataType="i4"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="100"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          dataType="wstr"
+                          length="100"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                          dataType="cy"
+                          name="Salary" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination 1"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Employee_Error]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1251</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+                      connectionManagerRefId="Package.ConnectionManagers[WIN-IQDREHRC5DK.ssis13]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="Copy of EmployeeID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of Name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Department]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Copy of Department"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Department]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Salary]"
+                          cachedDataType="cy"
+                          cachedName="Copy of Salary"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Salary]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedDataType="wstr"
+                          cachedLength="16"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Status]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          dataType="i4"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="100"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          dataType="wstr"
+                          length="100"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                          dataType="cy"
+                          name="Salary" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="wstr"
+                          length="100"
+                          name="Status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Inputs[Fuzzy Lookup Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Fuzzy Lookup Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Fuzzy Lookup Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup.Outputs[Fuzzy Lookup Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Matched]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Matched"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Matched]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Unmatched]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="Unmatched"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Conditional Split.Outputs[Unmatched]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{486A4F71-AC0D-40E4-8A66-D15AFB2CCCE1}"
+          DTS:ObjectName="{486A4F71-AC0D-40E4-8A66-D15AFB2CCCE1}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FullFilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task"
+          TopLeft="82.2999935800834,35.1333325438367" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="308.8,160"
+          Size="308.8,203.2"
+          Id="Package\Foreach Loop Container"
+          TopLeft="35.5,35.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
+          TopLeft="191.333323179848,33.2333331404792" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup"
+          TopLeft="196.666655921274,140.399999023676" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="267.599989550561,74.8333331404792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.5666658831967"
+              Start="0,0"
+              End="0,58.0666658831967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.0666658831967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
+          TopLeft="201.666655648086,231.399998390873" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Fuzzy Lookup Output]"
+          TopLeft="268.266655921274,181.999999023676">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.3999997268122,49.3999993671974"
+              Start="0,0"
+              End="11.3999997268122,41.8999993671974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6999996835987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6999996835987"
+                    Point2="0,24.6999996835987"
+                    Point3="4,24.6999996835987" />
+                  <mssgle:LineSegment
+                    End="7.39999972681215,24.6999996835987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.39999972681215,24.6999996835987"
+                    Point2="11.3999997268122,24.6999996835987"
+                    Point3="11.3999997268122,28.6999996835987" />
+                  <mssgle:LineSegment
+                    End="11.3999997268122,41.8999993671974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Conditional Split"
+          TopLeft="201.666655648086,327.59999772191" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="279.066655648086,272.999998390873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.5999993310372"
+              Start="0,0"
+              End="0,47.0999993310372">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.0999993310372" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="41.3333313754864,433.966664816472" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Matched]"
+          TopLeft="278.466655648086,369.19999772191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-151.5333242726,64.7666670945619"
+              Start="0,0"
+              End="-151.5333242726,57.2666670945619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3833335472809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3833335472809"
+                    Point2="0,32.3833335472809"
+                    Point3="-4,32.3833335472809" />
+                  <mssgle:LineSegment
+                    End="-147.5333242726,32.3833335472809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-147.5333242726,32.3833335472809"
+                    Point2="-151.5333242726,32.3833335472809"
+                    Point3="-151.5333242726,36.3833335472809" />
+                  <mssgle:LineSegment
+                    End="-151.5333242726,57.2666670945619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-94.70465041755,37.3833335472809,37.8759765625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+          TopLeft="402.499978008371,448.933331440952" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Unmatched]"
+          TopLeft="302.733322314753,369.19999772191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176.166655693618,79.7333337190417"
+              Start="0,0"
+              End="176.166655693618,72.2333337190417">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3865293662912" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3865293662912"
+                    Point2="0,32.3865293662912"
+                    Point3="4,32.3865293662912" />
+                  <mssgle:LineSegment
+                    End="172.166655693618,32.3865293662912" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.166655693618,32.3865293662912"
+                    Point2="176.166655693618,32.3865293662912"
+                    Point3="176.166655693618,36.3865293662912" />
+                  <mssgle:LineSegment
+                    End="176.166655693618,72.2333337190417" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="62.6863942530588,37.3865293662912,50.7938671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1"
+          TopLeft="388.833312388924,538.633331929114" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="478.866645198647,490.533331440952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.100000488162"
+              Start="0,0"
+              End="0,40.600000488162">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.600000488162" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\Fuzzy Lookup">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
